@@ -1,24 +1,9 @@
-import React, { Component } from 'react';
-import $ from 'jquery'
-import logo from './logo.svg'
+import React, { Component } from 'react'
+import AutorBox from './Autor'
 import './css/pure.css'
 import './css/side-menu.css'
 
 class App extends Component {
-
-  constructor() {
-    super()
-    this.state = { autores: [] }
-  }
-
-  componentDidMount() {
-    $.ajax({
-      url: 'http://localhost:8080/api/autores',
-      dataType: 'json',
-      success: res => this.setState({ autores: res })
-    })
-  }
-
   render() {
     return (
       <div id="layout">
@@ -49,47 +34,9 @@ class App extends Component {
             <h1>Cadastro de Autores</h1>
           </div>
           <div className="content">
-            <div className="pure-form pure-form-aligned">
-              <form className="pure-form pure-form-aligned">
-                <div className="pure-control-group">
-                  <label htmlFor="nome">Nome</label>
-                  <input id="nome" type="text" name="nome" value=""  />
-                </div>
-                <div className="pure-control-group">
-                  <label htmlFor="email">Email</label>
-                  <input id="email" type="email" name="email" value=""  />
-                </div>
-                <div className="pure-control-group">
-                  <label htmlFor="senha">Senha</label>
-                  <input id="senha" type="password" name="senha"  />
-                </div>
-                <div className="pure-control-group">
-                  <label></label>
-                  <button type="submit" className="pure-button pure-button-primary">Gravar</button>
-                </div>
-              </form>
-            </div>
 
-            <div>
-              <table className="pure-table">
-                <thead>
-                  <tr>
-                    <th>Nome</th>
-                    <th>email</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {
-                    this.state.autores.map(autor => 
-                      <tr key={ autor.id }>
-                        <td>{ autor.nome }</td>
-                        <td>{ autor.email }</td>
-                      </tr>
-                    )
-                  }
-                </tbody>
-              </table>
-            </div>
+            <AutorBox />
+            
           </div>
         </div>
       </div>
