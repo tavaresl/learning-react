@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import AutorBox from './Autor'
+import { Link } from 'react-router-dom'
 import './css/pure.css'
 import './css/side-menu.css'
 
@@ -12,35 +12,26 @@ class App extends Component {
         </a>
         <div id="menu">
           <div className="pure-menu">
-            <a className="pure-menu-heading" href="#">Company</a>
+            <Link to="/" className="pure-menu-heading">Alura Books</Link>
 
             <ul className="pure-menu-list">
               <li className="pure-menu-item">
-                <a href="#" className="pure-menu-link">Home</a>
+                <Link to="/" className="pure-menu-link">Home</Link>
               </li>
               <li className="pure-menu-item">
-                <a href="#" className="pure-menu-link">About</a>
+                <Link to="/autor" className="pure-menu-link">Autores</Link>
               </li>
-              <li className="pure-menu-item menu-item-divided pure-menu-selected">
-                <a href="#" className="pure-menu-link">Services</a>
+              <li className="pure-menu-item">
+                <Link to="/livro" className="pure-menu-link">Livros</Link>
               </li>
-
-              <li className="pure-menu-item"><a href="#" className="pure-menu-link">Contact</a></li>
             </ul>
           </div>
         </div>
         <div id="main">
-          <div className="header">
-            <h1>Cadastro de Autores</h1>
-          </div>
-          <div className="content">
-
-            <AutorBox />
-            
-          </div>
+          { this.props.children }
         </div>
       </div>
-    );
+    )
   }
 }
 
